@@ -1,0 +1,47 @@
+// Author: lipixun
+// Created Time : 2021-01-17 00:51:12
+//
+// File Name: config.proto
+// Description:
+//
+//  Task config proto
+//
+syntax = "proto3";
+
+package task;
+
+option go_package = "github.com/anytorrents/idl/task";
+
+//
+// Source
+//
+
+message Source {
+  string uri = 1;      // URI
+  SourceFile file = 2; // File
+}
+
+message SourceFile {
+  string name = 1;  // File name
+  bytes binary = 2; // Binary
+}
+
+//
+// Collection
+//
+message Collection {
+  repeated CollectionFile file = 1; // Files
+}
+
+message CollectionFile {
+  string name = 1; // File name
+}
+
+//
+// Config
+//
+
+message Config {
+  Source source = 1;         // Source
+  Collection collection = 2; // Collection
+}
